@@ -82,7 +82,7 @@
 		</data>
 		<key>Assets.car</key>
 		<data>
-		gjCge7hJ+Vlhwt/TPzvuD1hfEo8=
+		K9ngUsJMFCQFszBu9oa5Y0Ln0Tw=
 		</data>
 		<key>Base.lproj/LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib</key>
 		<data>
@@ -110,7 +110,7 @@
 		</data>
 		<key>Frameworks/App.framework/App</key>
 		<data>
-		uXWiZ5BSx06n1YVKAo3XF7fUBe0=
+		oIITr/DkCWimXmiJWgZtuAj+/4E=
 		</data>
 		<key>Frameworks/App.framework/Info.plist</key>
 		<data>
@@ -118,7 +118,7 @@
 		</data>
 		<key>Frameworks/App.framework/_CodeSignature/CodeResources</key>
 		<data>
-		dzZ5on2DXE23QQ5vOuXqAcHrWo4=
+		bBwgr2MBSjFpuRn26/CTnDrubiA=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.json</key>
 		<data>
@@ -154,7 +154,7 @@
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/kernel_blob.bin</key>
 		<data>
-		YWpop03KP9x9mm0yj/BexUaA8WI=
+		sOHedjGMNSLG2B3h2WDeG41D0u4=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<data>
@@ -396,7 +396,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			MjVEULG4Wjfv/yWjjkgJX+pp0FfFdETVxNLyXAhVLQA=
+			M4xzIh1LxTUyTGt/QYfM3DH2rkymSAZblZYpnUKjN8s=
 			</data>
 		</dict>
 		<key>Base.lproj/LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib</key>
@@ -445,7 +445,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			HxohkaqYy887clfkceeM+WnIdh7oOhCbF5CqFIfCdHo=
+			ZiSFWuQJNUhdRDxWcsVLMX2t4Rm2x995zETMjOCPCbU=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/Info.plist</key>
@@ -459,7 +459,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Pae6zaw0h8q/pbDd0jxbC8AiQmSgzMxRMsrKI3WX/wI=
+			aaSVCBdXswr+Ji8wftEP0UjH1y3fiNCNkeAqZkm66Ls=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.json</key>
@@ -522,7 +522,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			KNUGcQw4/5Zwnr8LSQ67txqNkEc41AHqeaSkDWu016s=
+			cUQ4z5noyidzijrIR1kykSZ50ptp1cbN9hgkQAuBOSc=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>

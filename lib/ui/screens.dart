@@ -29,30 +29,34 @@ class _ScreensState extends State<Screens> {
       body: Center(
         child: _children[_currentIndex],
       ),
-      bottomNavigationBar: Container(
-        decoration: const BoxDecoration(
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey,
-              blurRadius: 15,
-            ),
-          ],
-        ),
-        child: BottomNavigationBar(
-          type: BottomNavigationBarType.fixed,
-          selectedItemColor: Colors.black,
-          unselectedItemColor: Colors.blue,
-          currentIndex: _currentIndex,
-          onTap: onTabTapped,
-          items: const [
-            BottomNavigationBarItem(
-                icon: Icon(Icons.home_outlined), label: "Home"),
-            BottomNavigationBarItem(icon: Icon(Icons.search), label: "Home"),
-            BottomNavigationBarItem(icon: Icon(Icons.add), label: "Home"),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.bookmark_border), label: "Home"),
-          ],
-        ),
+      bottomNavigationBar: navbar(),
+    );
+  }
+
+  Container navbar() {
+    return Container(
+      decoration: const BoxDecoration(
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey,
+            blurRadius: 15,
+          ),
+        ],
+      ),
+      child: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        selectedItemColor: Colors.black,
+        unselectedItemColor: Colors.blue,
+        currentIndex: _currentIndex,
+        onTap: onTabTapped,
+        items: const [
+          BottomNavigationBarItem(
+              icon: Icon(Icons.home_outlined), label: "Home"),
+          BottomNavigationBarItem(icon: Icon(Icons.search), label: "Home"),
+          BottomNavigationBarItem(icon: Icon(Icons.add), label: "Home"),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.bookmark_border), label: "Home"),
+        ],
       ),
     );
   }
