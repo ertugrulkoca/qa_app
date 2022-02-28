@@ -13,8 +13,12 @@ class Screens extends StatefulWidget {
 class _ScreensState extends State<Screens> {
   final List<Widget> _children = [
     HomeView(),
-    SearchView(),
+    // SearchView(39628),
   ];
+  @override
+  void initState() {
+    super.initState();
+  }
 
   int _currentIndex = 0;
   void onTabTapped(int index) {

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:qa_application/ui/screens.dart';
+import 'package:qa_application/ui/search_view/serach_view.dart';
+
+import 'ui/home_view/home_view.dart';
 
 void main() => runApp(MyApp());
 
@@ -11,7 +14,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Material App',
-      home: Screens(),
+      home: HomeView(),
+      // home: SearchView(39628),
     );
   }
 }
