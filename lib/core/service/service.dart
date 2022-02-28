@@ -8,9 +8,10 @@ import 'package:qa_application/core/model/users/user_items.dart';
 import '../model/users/users.dart';
 
 class Service {
-  // static const String questionUrl =
-  //     "https://api.stackexchange.com/2.3/questions?page=1&pagesize=1&order=asc&sort=activity&site=stackoverflow&filter=!IF84q-Z.*ltXwUWAk0TjGTVsx1NQ1CJkKtr)5aeDkjBAGw3";
   static const String questionUrl = "api.stackexchange.com";
+  static final Service _instance = Service._private();
+  Service._private();
+  static Service get instance => _instance;
 
   Future<List<Items>> getQuestion(int count) async {
     var url = Uri.https(questionUrl, "/2.3/questions", {
@@ -57,46 +58,4 @@ class Service {
         return items;
     }
   }
-
-  // Future<List<Items>> getQuestionById(int id) async {
-  //   var url = Uri.https(questionUrl, "/2.3/questions/$id", {
-  //     "order": "desc",
-  //     "sort": "activity",
-  //     "site": "stackoverflow",
-  //     "filter": "!ak79D-df_WGWbj",
-  //   });
-  //   final response = await http.get(url);
-  //   switch (response.statusCode) {
-  //     case HttpStatus.ok:
-  //       // print(response.body);
-  //       List<Items> items =
-  //           Questions.fromJson(jsonDecode(response.body)).items ?? [];
-  //       return items;
-
-  //     default:
-  //       List<Items> items = [];
-  //       return items;
-  //   }
-  // }
-
-  // Future<List<Items>> getAnswerById(int id) async {
-  //   var url = Uri.https(questionUrl, "/2.3/questions/$id/answers", {
-  //     "order": "desc",
-  //     "sort": "activity",
-  //     "site": "stackoverflow",
-  //     "filter": "!ak79D-df_WSOSy",
-  //   });
-  //   final response = await http.get(url);
-  //   switch (response.statusCode) {
-  //     case HttpStatus.ok:
-  //       // print(response.body);
-  //       List<Items> items =
-  //           Questions.fromJson(jsonDecode(response.body)).items ?? [];
-  //       return items;
-
-  //     default:
-  //       List<Items> items = [];
-  //       return items;
-  //   }
-  // }
 }

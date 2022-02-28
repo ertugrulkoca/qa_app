@@ -1,0 +1,4 @@
+#Mon Feb 28 09:47:44 TRT 2022
+base.0=/Users/ertugrulkoca/Documents/qa_application/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
+renamed.0=classes.dex
+path.0=classes.dex
