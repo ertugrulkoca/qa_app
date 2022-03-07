@@ -1,5 +1,5 @@
-# qa_app
-QA App
+# QA App.
+
 Stack Exchange API is used in this project.
 
 ## Screenshots
