@@ -1,18 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:qa_application/core/model/questions/answers.dart';
+import 'package:qa_application/core/provider/item_provider.dart';
 import '../../core/model/questions/items.dart';
 import '../../core/model/users/user_items.dart';
 import '../../core/service/service.dart';
-import '../components/bottom_bar.dart';
 import '../components/dummy_pages.dart';
 import '../helper/ui_hepler.dart';
 import 'widgets/search_view_widgets.dart';
 
 class SearchView extends StatefulWidget {
-  Items question;
-  SearchView(
-    this.question,
-  ) : super();
   @override
   State<SearchView> createState() => _SearchViewState();
 }
@@ -26,38 +23,57 @@ class _SearchViewState extends State<SearchView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: SafeArea(
-          child: SingleChildScrollView(
-            child: Padding(
-              padding: const EdgeInsets.only(left: 30, top: 10),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  searchBar(),
-                  sizedBox(30),
-                  const Text("Profile"),
-                  sizedBox(20),
-                  profileContainerListView(),
-                  sizedBox(30),
-                  const Text("Post"),
-                  sizedBox(10),
-                  Padding(
-                    padding: const EdgeInsets.only(right: 30),
-                    child: questionContainer(
-                        widget.question.owner!.displayName!,
-                        widget.question.creationDate!,
-                        widget.question.title!,
-                        UiHepler.instance
-                            .parseHtmlString(widget.question.body!),
-                        widget.question.owner!.profileImage!),
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.only(left: 30, top: 10),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                searchBar(),
+                sizedBox(30),
+                const Text("Profile"),
+                sizedBox(20),
+                profileContainerListView(),
+                sizedBox(30),
+                const Text("Post"),
+                sizedBox(10),
+                Padding(
+                  padding: const EdgeInsets.only(right: 30),
+                  child: Consumer<ItemModelProvider>(
+                    builder: (context, value, child) {
+                      if (value.getQuestion() != null) {
+                        Items question = value.getQuestion()!;
+                        return Column(
+                          children: [
+                            questionContainer(
+                                question.owner!.displayName!,
+                                question.creationDate!,
+                                question.title!,
+                                UiHepler.instance
+                                    .parseHtmlString(question.body!),
+                                question.owner!.profileImage!),
+                            (() {
+                              if (question.answers != null) {
+                                return questionListView(question);
+                              } else {
+                                return const SizedBox();
+                              }
+                            }()),
+                          ],
+                        );
+                      } else {
+                        return const SizedBox();
+                      }
+                    },
                   ),
-                  questionListView(),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ),
-        bottomNavigationBar: buttomBar(context, 1));
+      ),
+    );
   }
 
   SizedBox profileContainerListView() {
@@ -97,20 +113,20 @@ class _SearchViewState extends State<SearchView> {
     );
   }
 
-  Padding questionListView() {
-    return Padding(
-      padding: const EdgeInsets.only(right: 30),
-      child: SizedBox(
-        width: double.infinity,
-        child: ListView.builder(
+  SizedBox questionListView(Items question) {
+    return SizedBox(
+      width: double.infinity,
+      child: Consumer<ItemModelProvider>(builder: (context, value, child) {
+        Items question = value.getQuestion()!;
+        return ListView.builder(
           physics: const NeverScrollableScrollPhysics(),
           shrinkWrap: true,
           scrollDirection: Axis.vertical,
-          itemCount: widget.question.answers!.length,
+          itemCount: question.answers!.length,
           itemBuilder: (context, index) {
             List<Answers> answerList = [];
-            if (widget.question.answers != null) {
-              for (var item in widget.question.answers!) {
+            if (question.answers != null) {
+              for (var item in question.answers!) {
                 answerList.add(item);
               }
             }
@@ -121,7 +137,7 @@ class _SearchViewState extends State<SearchView> {
             String profileImage = "";
             int creationDate = answerList[index].creationDate ?? 0;
 
-            if (widget.question.owner != null) {
+            if (question.owner != null) {
               displayName = answerList[index].owner!.displayName ?? "";
               profileImage = answerList[index].owner!.profileImage ??
                   "https://dummyimage.com/600x400/000/fff";
@@ -129,8 +145,8 @@ class _SearchViewState extends State<SearchView> {
             return questionContainer(
                 displayName, creationDate, "", answerBody, profileImage);
           },
-        ),
-      ),
+        );
+      }),
     );
   }
 }
