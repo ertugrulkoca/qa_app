@@ -1,7 +1,8 @@
 # qa_app
+QA App
+Stack Exchange API is used in this project.
 
-## Home Page
-![HomeView](https://github.com/ertugrulkoca/qa_app/blob/main/home.png)
-
-## Search Page
-![SearchView](https://github.com/ertugrulkoca/qa_app/blob/main/search.png)
+## Screenshots
+| Home Page | Search Page |
+| --------- | ----------- |
+| ![image](https://github.com/ertugrulkoca/qa_app/blob/main/home.png) | ![image](https://github.com/ertugrulkoca/qa_app/blob/main/search.png) |
